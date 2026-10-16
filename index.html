@@ -54,6 +54,7 @@ footer .tag{font-size:12px;letter-spacing:.28em;text-transform:uppercase;margin-
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--b);color:var(--c);padding:10px 18px;border-radius:999px;opacity:0;transition:opacity .3s;pointer-events:none}#toast.on{opacity:1}
 #cover{min-height:100vh;min-height:100svh;background:var(--b);color:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px}
 #cover img{height:84px;margin-bottom:22px}
+#cover img.sclogo{height:auto;width:min(78vw,300px);margin-bottom:26px}
 #cover h1{font-family:Georgia,serif;font-weight:600;font-size:46px;line-height:1.05}
 #cover .cs{font-size:17px;margin-top:14px;max-width:320px;line-height:1.4}
 #cover .cl{font-size:12px;letter-spacing:.28em;text-transform:uppercase;opacity:.85;margin-top:18px}
@@ -66,7 +67,7 @@ footer .tag{font-size:12px;letter-spacing:.28em;text-transform:uppercase;margin-
 .skip-cover #cover{display:none}
 @media (prefers-reduced-motion:reduce){.js #cover{transition:opacity .3s}.js #cover.out{transform:none}#cover .hint{animation:none}}
 </style></head><body>
-<section id="cover" aria-label="Worth Knowing"><img src="img/fr-cream.svg" alt="The Front Room"><h1>Worth Knowing</h1>
+<section id="cover" aria-label="Worth Knowing"><img class="sclogo" src="img/sc-logo-cream.svg" alt="The Front Room Social Club"><h1>Worth Knowing</h1>
 <p class="cs">The Front Room Social Club Member Directory</p><p class="cl">Meet someone worth knowing.</p>
 <a class="go" href="#members">Meet the members</a><div class="hint" aria-hidden="true">↑ Tap or swipe up</div></section>
 <div id="members"></div>
