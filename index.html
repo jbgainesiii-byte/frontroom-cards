@@ -1,5 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Front Room Social Club · Meet someone worth knowing.</title>
+<title>Worth Knowing | The Front Room Social Club</title>
+<meta property="og:title" content="Worth Knowing | The Front Room Social Club">
+<meta property="og:description" content="The Front Room Social Club Member Directory. Meet someone worth knowing.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://jbgainesiii-byte.github.io/frontroom-cards/">
+<meta property="og:image" content="https://jbgainesiii-byte.github.io/frontroom-cards/img/og-cover.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Worth Knowing | The Front Room Social Club"><meta name="twitter:image" content="https://jbgainesiii-byte.github.io/frontroom-cards/img/og-cover.png">
+<meta name="theme-color" content="#592C35">
+<script>document.documentElement.classList.add('js');if(location.hash&&location.hash.length>1)document.documentElement.classList.add('skip-cover');</script>
 <meta name="description" content="The Front Room Social Club member table cards.">
 <style>
 :root{--b:#592C35;--c:#F7F1E8;--ink:#3b1d23}
@@ -45,7 +52,24 @@ footer .tag{font-size:12px;letter-spacing:.28em;text-transform:uppercase;margin-
 .benefits li{list-style:none;padding:9px 0;border-top:1px solid #F7F1E833;font-size:16px}
 .share{background:var(--b);color:var(--c);border:0;border-radius:999px;padding:10px 20px;font-weight:700;font-size:14px;cursor:pointer}
 #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--b);color:var(--c);padding:10px 18px;border-radius:999px;opacity:0;transition:opacity .3s;pointer-events:none}#toast.on{opacity:1}
+#cover{min-height:100vh;min-height:100svh;background:var(--b);color:var(--c);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 24px}
+#cover img{height:84px;margin-bottom:22px}
+#cover h1{font-family:Georgia,serif;font-weight:600;font-size:46px;line-height:1.05}
+#cover .cs{font-size:17px;margin-top:14px;max-width:320px;line-height:1.4}
+#cover .cl{font-size:12px;letter-spacing:.28em;text-transform:uppercase;opacity:.85;margin-top:18px}
+#cover .go{display:inline-block;margin-top:34px;background:var(--c);color:var(--b);font-weight:700;font-size:16px;padding:14px 30px;border-radius:999px;text-decoration:none;border:0}
+#cover .hint{margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.7;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.js #cover{position:fixed;inset:0;z-index:50;transition:transform .7s cubic-bezier(.6,0,.2,1),opacity .7s}
+.js #cover.out{transform:translateY(-100%);opacity:0}
+.js.cover-open body{overflow:hidden}
+.skip-cover #cover{display:none}
+@media (prefers-reduced-motion:reduce){.js #cover{transition:opacity .3s}.js #cover.out{transform:none}#cover .hint{animation:none}}
 </style></head><body>
+<section id="cover" aria-label="Worth Knowing"><img src="img/fr-cream.svg" alt="The Front Room"><h1>Worth Knowing</h1>
+<p class="cs">The Front Room Social Club Member Directory</p><p class="cl">Meet someone worth knowing.</p>
+<a class="go" href="#members">Meet the members</a><div class="hint" aria-hidden="true">↑ Tap or swipe up</div></section>
+<div id="members"></div>
 <header><img src="img/fr-cream.svg" alt="The Front Room"><h1>The Front Room Social Club</h1><p>Meet someone worth knowing.</p></header>
 <main>
 
@@ -122,4 +146,14 @@ if(navigator.canShare({files:[f]})){await navigator.share({files:[f],title,text:
 if(navigator.share){await navigator.share({title,text,url});return}}catch(e){if(e&&e.name==='AbortError')return}
 try{await navigator.clipboard.writeText(url)}catch(e){const t=document.createElement('textarea');t.value=url;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()}
 toast('Link copied')}));
-</script></body></html>
+</script><script>(function(){var c=document.getElementById('cover'),h=document.documentElement;if(!c)return;
+if(h.classList.contains('skip-cover')){c.remove();return}
+h.classList.add('cover-open');var done=false;
+function open(e){if(e&&e.preventDefault)e.preventDefault();if(done)return;done=true;h.classList.remove('cover-open');c.classList.add('out');window.scrollTo(0,0);
+setTimeout(function(){c.style.display='none';c.setAttribute('aria-hidden','true')},750)}
+c.querySelector('.go').addEventListener('click',open);
+var y0=null;c.addEventListener('touchstart',function(e){y0=e.touches[0].clientY},{passive:true});
+c.addEventListener('touchend',function(e){if(y0!==null&&y0-e.changedTouches[0].clientY>40)open();y0=null});
+c.addEventListener('wheel',function(e){if(e.deltaY>20)open()},{passive:true});
+document.addEventListener('keydown',function(e){if(!done&&(e.key==='Enter'||e.key===' '||e.key==='ArrowDown'))open(e)});
+})();</script></body></html>
