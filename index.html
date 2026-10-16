@@ -240,7 +240,7 @@ try{if(SHOW_TONIGHT&&new Date()<TONIGHT_UNTIL)document.getElementById('tonight')
 var cover=document.getElementById('cover'),intro=document.getElementById('intro');
 function browse(){h.classList.remove('lock');h.classList.add('browsing')}
 function hide(el){el.classList.add('out');setTimeout(function(){el.classList.add('gone');el.setAttribute('aria-hidden','true')},700)}
-if(h.classList.contains('skip-cover')){cover.remove();intro.remove();browse();}
+if(h.classList.contains('skip-cover')){cover.remove();intro.remove();browse();var tg=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(tg)window.addEventListener('load',function(){tg.scrollIntoView({block:'start'})});}
 else{h.classList.add('lock');
 var step=0;
 function next(e){if(e&&e.preventDefault)e.preventDefault();
